@@ -21,3 +21,49 @@ Kitchen Simulator is a web app intended to be primarily used by restaurants for 
 
 - User registration
 - OAuth
+
+## Entity Relationship Diagram (ERD)
+
+### Product
+
+| Name     |  Type   |
+| -------- | :-----: |
+| Name     | Strign  |
+| isActive | Boolean |
+
+### PriceBook
+
+| Name     |  Type   |
+| -------- | :-----: |
+| Name     | Strign  |
+| isActive | Boolean |
+
+### PricebookEntry
+
+| Name       |          Type           |
+| ---------- | :---------------------: |
+| Product    |   Foren Key (Product)   |
+| Price Book | Foren Key (PrPriceBook) |
+| Price      |         Number          |
+
+### Oder
+
+| Name       |        Type        |
+| ---------- | :----------------: |
+| Client     | Foren Key (Client) |
+| Order Date |        Date        |
+| Total      |       Number       |
+
+### Oder Line Item
+
+| Name             |             Type             |
+| ---------------- | :--------------------------: |
+| Order            |      Foren Key (Order)       |
+| Price Book Entry | Foren Key (Price Book Entry) |
+| Discount         |            Number            |
+
+### Account, a.k.a Customer
+
+| Name |  Type  |
+| ---- | :----: |
+| Name | String |
