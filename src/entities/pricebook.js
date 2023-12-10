@@ -16,13 +16,15 @@
  * being used. 
  * 
 **/
-const Entity = require('./Entity');
+const Entity = require('./entity');
 
 /*
-@param name Name of the Pricebook. This is diffrent 
+@param pricebookName {String} Name of the Pricebook. This is diffrent 
+@param isStandardPricebook {Boolene} Flags the pricebook as the Default Pricebook to be use whenever a Pricebook is not specified for an Object requirering the pricebook (Order).
 */
-class Pricebook extends Entity{
-    let label;
+
+
+class Pricebook extends Entity{    
     constructor(pricebookName, isStandardPricebook) {
         super();
         this._name = pricebookName;
@@ -41,6 +43,14 @@ class Pricebook extends Entity{
 
     set name(newName) {
         this._name = newName;
+    }
+
+    get label() {
+        return this._label;
+    }
+
+    set label(newLabel) {
+        this._label = newLabel;
     }
 }
 
