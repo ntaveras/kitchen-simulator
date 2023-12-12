@@ -1,13 +1,24 @@
-const Entity = require('./Entity');
+/**
+ * @description:
+ * Represents a product entry (an association between a Pricebook2 and Product2) in a price book.
+ **/
+const Entity = require('./entity');
+
 class PricebookEntry extends Entity{
-    price;
+    DEFAULT_PRICE = 0; //Number
+
     constructor(pricebookId, productId) {
         super();
-        if(typeof pricebookId == undefined || typeof productId == undefined) {
-            throw new Error(`Both Pricebook and Product Id's are required to instanciate a PricebookEntry`);
-        }
-        this._pricebookId = pricebookId;
-        this._productId = productId;
+        this._pricebookId = pricebookId; //String
+        this._productId = productId; //String
+        this.price = DEFAULT_PRICE;
+    }
+
+    constructor(pricebookId, productId, price) {
+        super();
+        this._pricebookId = pricebookId; //String
+        this._productId = productId; //String
+        this._price = (typeof price == "number") ? price : DEFAULT_PRICE; //Number
     }
 
     //Object getter
@@ -15,14 +26,17 @@ class PricebookEntry extends Entity{
         return this._pricebookId;
     }
 
-    get product() {
+    get productId() {
         return this._productId;
     }
 
-    //Object setter
+    get price() {
+        return this._price;
+    }
+
     set price(newPrice) {
-        if(typeof newPrice == Number) {
-            this.price = newPrice;
+        if(typeof newPrice == "number") {
+            this._price = newPrice;
         } else {
             console.error(`Price is expected to be a Number, but ${typeof newPrice} was recieved instead.`);
         }

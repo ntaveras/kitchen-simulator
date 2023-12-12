@@ -13,7 +13,7 @@ Kitchen Simulator is a web app intended to be primarily used by restaurants for 
 **Version 1.0 scope:**
 
 - Product Catalogue
-  - List of AVailable Products
+  - List of Available Products
   - Product Pricing
 - Reciving orders
 
